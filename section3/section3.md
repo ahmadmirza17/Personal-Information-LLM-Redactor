@@ -317,7 +317,7 @@ python detect_pii.py
 
 ### Diagram
 
-![Architecture](section3\image\architecture_section3.jpg)
+![Architecture](section3/image/architecture_section3.jpg)
 
 ### Diagram Components
 
