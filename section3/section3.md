@@ -317,7 +317,7 @@ python detect_pii.py
 
 ### Diagram
 
-![Architecture](https://github.com/[ahmadmirza17]/[Responsible-AI-Take-Home-Assessment]/blob/[section3]/image.jpg?raw=true)
+![Architecture](https://github.com/ahmadmirza17/Responsible-AI-Take-Home-Assessment/blob/section3/image/image.jpg?raw=true)
 
 ### Diagram Components
 
