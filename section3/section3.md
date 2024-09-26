@@ -38,18 +38,20 @@ The **PII Detection and Redaction Tool** is designed to identify and redact Pers
 
 All necessary files are located in the `section3` folder of the repository:
 
-Responsible-AI-Take-Home-Assessment/ 
-├── section1/ 
-│ └── ... (files related to Section 1) 
-├── section3/ │ 
-├── pii_redactor.py 
-│ ├── detect_pii.py 
-│ ├── requirements.txt 
-│ ├── Dockerfile 
-│ ├── Dockerfile.streamlit 
-│ ├── GovTech RAI - Section 3 Q2.csv 
-│ ├── dataset_with_pii_flags.csv 
-│ └── README.md
+\`\`\`plaintext
+Responsible-AI-Take-Home-Assessment/
+├── section1/
+│   └── ... (files related to Section 1)
+├── section3/
+│   ├── pii_redactor.py
+│   ├── detect_pii.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── Dockerfile.streamlit
+│   ├── GovTech RAI - Section 3 Q2.csv
+│   ├── dataset_with_pii_flags.csv
+│   └── README.md
+\`\`\`
 
 
 - **`pii_redactor.py`**: Contains the `PIIRedactor` class for PII detection and redaction.
@@ -261,6 +263,7 @@ Include the updated dataset `dataset_with_pii_flags.csv` in your repository unde
 
 **Directory Structure Example:**
 
+\`\`\`plaintext
 Responsible-AI-Take-Home-Assessment/
 ├── section1/
 │   └── ... (files related to Section 1)
@@ -273,6 +276,7 @@ Responsible-AI-Take-Home-Assessment/
 │   ├── GovTech RAI - Section 3 Q2.csv
 │   ├── dataset_with_pii_flags.csv
 │   └── README.md
+\`\`\`
 
 ## PII Detection on Dataset
 
