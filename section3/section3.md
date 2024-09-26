@@ -241,21 +241,21 @@ When evaluating the PII detection tool, consider the following metrics:
 
 1. Create a Ground Truth Dataset:
 
-- Manually annotate a subset of your dataset to indicate the actual presence of each PII type.
+    - Manually annotate a subset of your dataset to indicate the actual presence of each PII type.
 
 2. Compare Predictions with Ground Truth:
 
-- Use the detection results from your tool and compare them against the ground truth labels.
+    - Use the detection results from your tool and compare them against the ground truth labels.
 
 3. Calculate Metrics:
 
-- For each PII type, compute precision, recall, and F1 score.
+    - For each PII type, compute precision, recall, and F1 score.
 
 4. Analyze Results:
 
-- Identify areas where the tool performs well and where improvements are needed.
+    - Identify areas where the tool performs well and where improvements are needed.
 
-- Consider the diversity and representativeness of your dataset.
+    - Consider the diversity and representativeness of your dataset.
 
 ## Including the Updated Dataset
 
