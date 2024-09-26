@@ -294,15 +294,15 @@ python detect_pii.py
 
 - Detects the presence of the following PII types in each text:
 
-1. Name
+    1. Name
 
-2. Email
+    2. Email
 
-3. Phone Number
+    3. Phone Number
 
-4. NRIC
+    4. NRIC
 
-5. Location
+    5. Location
 
 - Adds new binary columns to indicate the presence (1) or absence (0) of each PII type.
 
