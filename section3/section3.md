@@ -20,6 +20,11 @@
   - [Evaluating the Tool](#evaluating-the-tool)
 - [Including the Updated Dataset](#including-the-updated-dataset)
 - [PII Detection on Dataset](#pii-detection-on-dataset)
+- [Cloud Architecture](#cloud-architecture)
+    - [Diagram](#diagram)
+    - [Diagram Components](#diagram-components)
+    - [Design Considerations and Decision-Making Process](#design-considerations-and-decision-making-process)
+    - [Final Considerations](#final-considerations)
 
 ---
 
@@ -307,3 +312,173 @@ python detect_pii.py
 - Adds new binary columns to indicate the presence (1) or absence (0) of each PII type.
 
 - Saves the updated dataset as `dataset_with_pii_flags.csv`.
+
+## Cloud Architecture
+
+### Diagram
+
+![Architecture](C:\Users\ahmad\Documents\GitHub\Responsible-AI-Take-Home-Assessment\section3\image\architecture_section3.jpg)
+
+### Diagram Components
+
+- Users: Represents end-users accessing the application.
+
+- Internet: Depicts internet connectivity.
+
+- Route 53: AWS DNS service directing traffic to the ALB.
+
+- Application Load Balancer (ALB): Distributes incoming application traffic across multiple targets.
+
+- Frontend ASG (Public Subnet):
+
+  - Streamlit Instance: Runs the Streamlit frontend application.
+
+  - Auto Scaling: Automatically adjusts the number of instances based on demand.
+
+- Backend ASG (Private Subnet):
+
+  - FastAPI Instance: Runs the FastAPI backend application.
+
+  - Auto Scaling: Automatically adjusts the number of instances based on demand.
+
+- Amazon S3: Object storage service used by backend instances.
+
+- Amazon RDS: Relational Database Service for persistent storage.
+
+- NAT Gateway: Allows instances in private subnets to connect to the internet for updates.
+
+- Internet Gateway: Provides internet access to the VPC.
+
+### Design Considerations and Decision-Making Process
+
+**Security as a Priority**
+
+- Protecting PII Data:
+
+  - Backend instances handling PII are placed in private subnets, inaccessible from the internet.
+
+  - Communication between frontend and backend is secured through VPC and security groups.
+
+- Encryption:
+
+  - Use HTTPS for all communications.
+
+  - Encrypt data at rest in databases and S3.
+
+**Rationale**: Ensuring data security and compliance with data protection regulations is critical when handling sensitive information.
+
+**Scalability and High Availability**
+
+- Auto Scaling Groups:
+
+  - Enable automatic scaling based on demand patterns.
+
+- Multi-AZ Deployment:
+
+  - Distribute resources across multiple Availability Zones to prevent downtime due to AZ failures.
+
+**Rationale**: Enhances user experience by maintaining performance during peak loads and ensuring service availability.
+
+**Performance Optimisation**
+
+- Load Balancing:
+
+  - ALB efficiently distributes traffic, reducing bottlenecks.
+
+- Efficient Networking:
+
+  - Keeping communication within the VPC reduces latency.
+
+- Caching (Optional):
+
+  - Implement caching mechanisms if necessary to reduce load times.
+
+**Rationale**: Optimises resource usage and improves response times for end-users.
+
+**Cost Eficiency**
+
+- Right-Sizing Instances:
+
+  - Choose appropriate instance types based on workload requirements.
+
+- Auto Scaling:
+
+  - Scales down resources during low traffic periods to reduce costs.
+
+- Reserved Instances or Savings Plans (Optional):
+
+  - Commit to longer-term usage for cost savings.
+
+**Rationale**: Balances performance needs with budget constraints.
+
+**Deployment Strategy**
+
+- Containerization:
+
+  - Use Docker to containerize applications.
+
+  - Deploy using AWS ECS or EKS for better resource utilization and management.
+
+Rationale: Containers provide consistency across environments and facilitate scalability.
+
+### Final Considerations
+
+1. Leveraging More Compute Power
+
+**Utilize Larger Language Models (LLMs)**
+
+  - Advanced Models: Implement state-of-the-art models like GPT-3, GPT-4, or BERT to improve accuracy in PII detection.
+
+  - Contextual Understanding: Larger models better grasp context and nuances in language, reducing false positives and negatives.
+
+  - Complex Pattern Recognition: Enhanced ability to detect non-standard PII formats and obfuscated information.
+
+**Advanced Computational Techniques**
+
+  - Hardware Acceleration: Use GPUs and TPUs to accelerate training and inference.
+
+  - Parallel Processing: Employ distributed computing to handle large datasets efficiently.
+
+  - Scalability: Handle higher data volumes and support real-time processing.
+
+2. Leveraging More Expertise
+
+**Expert Data Scientists and NLP Specialists**
+
+  - Model Fine-Tuning: Customize models on domain-specific datasets for improved performance.
+
+  - Custom Algorithms: Develop specialized detection methods tailored to specific PII types and industries.
+
+  - Error Analysis: Identify and address model weaknesses through detailed analysis.
+
+**Cross-Functional Collaboration**
+
+  - Legal and Compliance Experts: Ensure adherence to data protection regulations.
+
+  - Security Professionals: Enhance data security measures and implement best practices.
+
+  - UX Designers: Improve the user interface and overall user experience.
+
+**Research and Innovation**
+
+  - Stay Updated: Integrate the latest NLP research and advancements.
+
+  - Experimentation: Explore new techniques like transfer learning and zero-shot learning.
+
+3. Allocating More Time
+
+**Extensive Model Training and Validation**
+
+  - Longer Training Periods: Achieve better model convergence and accuracy.
+
+  - Hyperparameter Optimization: Fine-tune settings for optimal model performance.
+
+  - Iterative Development: Continuously improve the tool based on feedback.
+
+**Comprehensive Testing**
+
+  - Thorough Testing: Implement unit, integration, and user acceptance testing.
+
+  - Data Collection and Preparation: Gather larger and more diverse datasets for training and evaluation.
+
+  - Refinement of Detection Rules: Improve rule-based methods to complement machine learning approaches.
