@@ -27,7 +27,7 @@ class PIIRedactor:
             redacted_text
         )
         
-        # Updated Phone Number Pattern
+        # Phone Number Pattern
         phone_pattern = r'\b(?:\+?65\s?)?[689]\d{3}\s?\d{4}\b'
         redacted_text = re.sub(phone_pattern, '[PHONE-NUM]', redacted_text)
         
