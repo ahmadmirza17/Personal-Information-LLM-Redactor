@@ -9,7 +9,7 @@
   - [Cloning the Repository](#cloning-the-repository)
   - [Installing Dependencies](#installing-dependencies)
 - [Running the PII Detection Script](#running-the-pii-detection-script)
-  - [Script Overview](#script-overview)
+  - [Script Overview](#script-overview-1)
   - [Script: `detect_pii.py`](#script-detect_piipy)
   - [Handling File Paths on Windows](#handling-file-paths-on-windows)
   - [Running the Script](#running-the-script)
